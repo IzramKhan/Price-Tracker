@@ -38,6 +38,7 @@ Options:
 
 - `--target`: only alert when the price drops to this value or lower
 - `--db`: path to the SQLite database (default: `prices.db`)
+- `--version`: show the version and exit
 
 ## Help
 

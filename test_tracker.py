@@ -237,3 +237,10 @@ def test_main_rejects_a_negative_target(tmp_path):
         main.main([URL, "--db", str(tmp_path / "prices.db"), "--target", "-5"])
 
     assert error.value.code == 2
+    
+def test_version_option_prints_the_version_and_exits(capsys):
+    with pytest.raises(SystemExit) as error:
+        main.main(["--version"])
+
+    assert error.value.code == 0
+    assert main.VERSION in capsys.readouterr().out

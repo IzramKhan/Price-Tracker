@@ -10,6 +10,8 @@ from scraper import PriceNotFoundError, get_page, get_price, get_title
 from storage import DEFAULT_DB_PATH, get_last_price, init_db, save_price
 from tracker import compare_prices, notify, should_alert
 
+VERSION = "1.0.0"
+
 
 def non_negative_float(value: str) -> float:
     number = float(value)
@@ -33,6 +35,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         default=DEFAULT_DB_PATH,
         help="path to the SQLite database (default: %(default)s)",
     )
+    parser.add_argument("--version", action="version", version=f"%(prog)s {VERSION}")
     return parser.parse_args(argv)
 
 
